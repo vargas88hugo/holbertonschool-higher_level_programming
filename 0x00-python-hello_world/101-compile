@@ -1,5 +1,4 @@
 #!/bin/bash
 
-python -m py_compile "$PYFILE"
-echo "Compiling $PYFILE ..."
+python -m compileall "$PYFILE"
 
