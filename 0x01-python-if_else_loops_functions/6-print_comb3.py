@@ -4,5 +4,5 @@ for i in range(1, 80):
         if str(format(j, '02'))[::-1] == str(format(i, '02')):
             break
         elif j == i:
-            print(format(i, '02'), end=", ")
+            print("{:02}".format(i), end=", ")
 print("89")
