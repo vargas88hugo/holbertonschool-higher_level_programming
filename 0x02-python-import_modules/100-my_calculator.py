@@ -4,7 +4,7 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
 
     if len(argv) != 4:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: {} <a> <operator> <b>".format(argv[0]))
         exit(1)
 
     a = int(argv[1])
@@ -17,6 +17,12 @@ if __name__ == "__main__":
         print("{} * {} = {:d}".format(a, b, a * b))
     elif argv[2] == '/':
         print("{} / {} = {:d}".format(a, b, a / b))
-    else:
+    elif argv[2] != '+' and argv[2] != '-':
         print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+    elif argv[2] != '*' and argv[2] != '/':
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+    else:
+        print("Unexpected Error")
         exit(1)
