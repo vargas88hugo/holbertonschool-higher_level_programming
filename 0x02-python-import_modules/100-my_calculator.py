@@ -24,5 +24,5 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     else:
-        print("Unexpected Error")
+        print("Usage: {} <a> <operator> <b>".format(argv[0]))
         exit(1)
