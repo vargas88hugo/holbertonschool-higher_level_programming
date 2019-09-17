@@ -9,7 +9,7 @@ void cpy_reverse(listint_t **head1, listint_t *head2);
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = NULL, *cpy = NULL;
+	listint_t *temp = NULL, *cpy = NULL, *tmp2 = NULL;
 	int i = 1;
 
 	if (head == NULL || *head == NULL)
@@ -17,19 +17,25 @@ int is_palindrome(listint_t **head)
 
 	temp = *head;
 	for (; temp; temp = temp->next)
-	        cpy_reverse(&cpy, temp);
+		cpy_reverse(&cpy, temp);
 
 	temp = *head;
 
-	for (; temp; temp = temp->next, cpy = cpy->next)
+	for (; temp; temp = temp->next)
+	{
 		if (temp->n != cpy->n)
 			i = 0;
+		tmp2 = cpy;
+		cpy = cpy->next;
+		free(tmp2);
+		tmp2 = NULL;
+	}
 
 	return (i);
 }
 
 /**
- * append - function that copies a linked list
+ * cpy_reverse - function that copies a linked list
  * @head1: Head of the copy linked list
  * @head2: Head of the linked list to be copied
  */
@@ -49,7 +55,7 @@ void cpy_reverse(listint_t **head1, listint_t *head2)
 		return;
 	}
 
-        new->n = head2->n;
+	new->n = head2->n;
 	new->next = *head1;
 	*head1 = new;
 }
