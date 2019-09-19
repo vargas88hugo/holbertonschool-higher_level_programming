@@ -4,10 +4,6 @@ def roman_to_int(roman_string):
         return 0
     a = 0
     su = 0
-    if roman_string.count('I') > 3 or roman_string.count('V') > 3 \
-       or roman_string.count('X') > 3 or roman_string.count('L') > 3 \
-       or roman_string.count('C') > 3 or roman_string.count('D') > 3:
-        return 0
     for i in range(len(roman_string) - 1, -1, -1):
         if roman_string[i] == 'D':
             a = 500
