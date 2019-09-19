@@ -33,4 +33,6 @@ def roman_to_int(roman_string):
             su += 1
         elif roman_string[i] == 'I' and a > 1:
             su -= 1
+        else:
+            return 0
     return su
