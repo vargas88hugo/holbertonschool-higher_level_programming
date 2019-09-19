@@ -22,7 +22,7 @@ def roman_to_int(roman_string):
             a = 10
             su += 10
         elif roman_string[i] == 'X' and a > 10:
-            a -= 10
+            su -= 10
         elif roman_string[i] == 'V' and a <= 5:
             a = 5
             su += 5
@@ -33,4 +33,5 @@ def roman_to_int(roman_string):
             su += 1
         elif roman_string[i] == 'I' and a > 1:
             su -= 1
+        print(su)
     return su
