@@ -7,14 +7,13 @@
 void print_python_bytes(PyObject *p)
 {
   Py_ssize_t i, j;
-  /* PyObject *Obj; */
   char * str;
 
   i = ((PyVarObject *)(p))->ob_size;
   str = ((PyBytesObject *)(p))->ob_sval;
 
   printf("[.] bytes object info\n");
-  if (_pyObject_CAST(p)->ob_type == &PyBytes_Type)
+  if (((PyObject *)(p))->ob_type != &PyBytes_Type)
     {
       printf("[ERROR] Invalid Bytes Object\n");
       return;
@@ -48,6 +47,8 @@ void print_python_list(PyObject *p)
   for (k = 0; k < i; k++)
     {
       Obj = ((PyListObject *)(p))->ob_item[k];
-      printf("Element %ld: %s\n", j, (char *)((PyObject *)(Obj))->ob_type->tp_name);
+      printf("Element %ld: %s\n", k, (char *)((PyObject *)(Obj))->ob_type->tp_name);
+      if (((PyObject *)(Obj))->ob_type == &PyBytes_Type)
+	print_python_bytes(Obj);
     }
 }
