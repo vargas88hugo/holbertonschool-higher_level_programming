@@ -21,11 +21,11 @@ void print_python_bytes(PyObject *p)
   printf("  size: %ld\n", i);
   printf("  trying string: %s\n", str);
 
-  if (i > 10)
-    i = 10;
-  printf("  first %ld bytes:", i);
+  if (i >= 10)
+    i = 9;
+  printf("  first %ld bytes:", i + 1);
 
-  for (j = 0; j < i; j++)
+  for (j = 0; j <= i; j++)
     {
       printf(" %02x", (unsigned)(unsigned char)str[j]);
     }
