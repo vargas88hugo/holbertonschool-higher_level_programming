@@ -9,6 +9,16 @@ class Square:
        attr1 (size): size of the square.
     """
     def __init__(self, size=0):
+        """
+        The constructor for Square Class
+
+        Args:
+           param1 (size): size of the square
+
+        Raises:
+           ValueError: If size is less than zero
+           TypeError: If size is not a integer
+        """
         if type(size) == int:
             if size < 0:
                 raise ValueError("size must be >= 0")
