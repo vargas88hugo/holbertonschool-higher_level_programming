@@ -76,9 +76,9 @@ void print_python_bytes(PyObject *p)
 
 void print_python_float(PyObject *p)
 {
-  long double i;
-  char buff[100];
-  int j, k;
+  long double n;
+  char buff[101];
+  int i, k;
 
   printf("[.] float object info\n");
 
@@ -88,11 +88,11 @@ void print_python_float(PyObject *p)
       return;
     }
 
-  i = ((PyFloatObject *)(p))->ob_fval;
-  gcvt(i, 20, buff);
+  n = ((PyFloatObject *)(p))->ob_fval;
+  gcvt(n, 16, buff);
 
-  for (j = 0; buff[j]; j++)
-    if (buff[j] == '.')
+  for (i = 0; buff[i]; i++)
+    if (buff[i] == '.')
       k = 1;
 
   if (k != 1)
