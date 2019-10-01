@@ -1,0 +1,6 @@
+*~
+[[:alpha:]]
+[[:digit:]]*
+*main.py
+*main.c
+__*
