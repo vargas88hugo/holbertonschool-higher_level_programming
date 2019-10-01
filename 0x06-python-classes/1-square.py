@@ -2,6 +2,8 @@
 """
 Module of the class square
 """
+
+
 class Square:
     """
     This is a class for define a private instance attribute.
