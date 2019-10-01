@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Module of the class square
+"""
 class Square:
     """
     This is a class for define a private instance attribute.
@@ -13,4 +16,4 @@ class Square:
         Args:
            param1 (size): size of the square
         """
-        self._size = size
+        self.__size = size
