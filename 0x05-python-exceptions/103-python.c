@@ -89,7 +89,7 @@ void print_python_float(PyObject *p)
     }
 
   i = ((PyFloatObject *)(p))->ob_fval;
-  gcvt(i, 16, buff);
+  gcvt(i, 20, buff);
 
   for (j = 0; buff[j]; j++)
     if (buff[j] == '.')
