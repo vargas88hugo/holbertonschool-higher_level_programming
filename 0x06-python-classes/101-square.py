@@ -5,7 +5,7 @@ class Square:
         Function that prints the area of the square
         """
         if self.__size == 0:
-            return "\n"
+            return ""
 
         str1 = ""
 
