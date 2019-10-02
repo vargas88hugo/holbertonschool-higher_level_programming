@@ -86,7 +86,7 @@ class Square:
         for i in range(self.__position[1]):
             str1 += "\n"
 
-        for i in range(self.__size):
+        for n in range(self.__size):
             for j in range(self.__position[0]):
                 str1 += " "
             for k in range(self.__size):
