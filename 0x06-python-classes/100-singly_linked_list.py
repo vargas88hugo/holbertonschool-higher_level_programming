@@ -15,15 +15,15 @@ class Node:
            param1 (data): data of the node
            param2 (next_node): object to the next node
         """
-        if type(value) is not int:
+        if type(data) is not int:
             raise TypeError("data must be an integer")
         else:
-            self.__data = value
+            self.__data = data
 
-        if value is not None and type(value) != Node:
+        if next_node is not None and type(next_node) != Node:
             raise TypeError("next_node must be a Node Object")
         else:
-            self.__next_node = value
+            self.__next_node = next_node
 
     @property
     def data(self):
