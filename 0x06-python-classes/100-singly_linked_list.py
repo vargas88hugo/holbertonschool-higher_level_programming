@@ -21,7 +21,7 @@ class Node:
             self.__data = data
 
         if next_node is not None and type(next_node) != Node:
-            raise TypeError("next_node must be a Node Object")
+            raise TypeError("next_node must be a Node object")
         self.__next_node = next_node
 
     @property
@@ -47,7 +47,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         if value is not None and type(value) != Node:
-            raise TypeError("next_node must be a Node Object")
+            raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 
