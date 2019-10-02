@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import math
+
+
 class MagicClass:
     """
     This is a class of MagicClass
-    Attributes
-       attrb1
     """
     def __init__(self, radius=0):
         self.__radius = 0
