@@ -1,0 +1,57 @@
+=============================================
+Python Test Cases for 0-add_integer.py module
+============================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test 1
+======
+>>> print(add_integer(1, 2))
+3
+
+Test 2
+======
+>>> print(add_integer(100, -2))
+98
+
+Test 3
+======
+>>> print(add_integer(2))
+100
+
+Test 4
+======
+>>> print(add_integer(100.3, -2))
+98
+
+Test 5
+======
+>>> try:
+...	print(add_integer(4, "School"))
+... except Exception as e:
+... 	print(e)
+b must be an integer
+
+Test 6
+======
+>>> try:
+...	print(add_integer(None))
+... except Exception as e:
+... 	print(e)
+a must be an integer
+
+Test 7
+======
+>>> try:
+...     print(add_integer("School", 4))
+... except Exception as e:
+... 	print(e)
+a must be an integer
+
+Test 8
+======
+>>> try:
+...     print(add_integer(5.5, 5.9))
+... except Exception as e:
+...     print(e)
+10
