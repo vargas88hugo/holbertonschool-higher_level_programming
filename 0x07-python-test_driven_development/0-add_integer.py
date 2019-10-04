@@ -17,9 +17,6 @@ def add_integer(a, b=98):
 
     Returns:
        The sum of the two numbers
-
-    >>> add_integer(5, 5)
-    10
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
