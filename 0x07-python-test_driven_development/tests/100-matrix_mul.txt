@@ -7,16 +7,19 @@ Python Test Cases for 100-matrix_mul.py
 Test 1
 ======
 >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+... # doctest: +NORMALIZE_WHITESPACE
 [[7, 10], [15, 22]]
 
 Test 2
 ======
 >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+... # doctest: +NORMALIZE_WHITESPACE
 [[13, 16]]
 
 Test 3
 ======
 >>> print(matrix_mul([[1.9, 2.9]], [[3.9, 4.9], [5.9, 6.9]]))
+... # doctest: +NORMALIZE_WHITESPACE
 [[24.52, 29.32]]
 
 Test 4
