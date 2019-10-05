@@ -62,3 +62,8 @@ Test 9
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
+
+Test 10
+=======
+>>> print(add_integer(True, True))
+2
