@@ -24,7 +24,7 @@ def print_square(size):
         raise ValueError("size must be >= 0")
 
     if size == 0:
-        print()
+        return
 
     for i in range(size):
         k = 0
