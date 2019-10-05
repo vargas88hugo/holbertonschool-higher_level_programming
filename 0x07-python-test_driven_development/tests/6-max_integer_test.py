@@ -23,6 +23,9 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer(
             [2, 2, 2]
         ), 2)
+        self.assertEqual(max_integer(
+            [2]
+        ), 2)
 
     """ Test for floats """
     def test_floats(self):
