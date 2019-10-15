@@ -18,7 +18,7 @@ class BaseGeometry():
         """
         function that raises an error if the condition is not fulfilled
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
