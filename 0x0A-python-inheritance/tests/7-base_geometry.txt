@@ -74,3 +74,11 @@ Test 9
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] set must be an integer
+
+Test 10
+=======
+>>> try:
+...    bg.integer_validator("float", 0.2)
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] float must be an integer
