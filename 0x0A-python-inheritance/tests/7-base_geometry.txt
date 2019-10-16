@@ -7,23 +7,46 @@ Tests
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
 
+Test 1
+======
 >>> try:
 ...    bg.integer_validator("name", "John")
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
+
+Test 2
+======
 >>> try:
 ...    bg.integer_validator("age", 0)
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] age must be greater than 0
+
+Test 3
+======
 >>> try:
 ...    bg.integer_validator("distance", -4)
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
+
+Test 4
+======
 >>> try:
 ...     print(bg.area())
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [Exception] area() is not implemented
+
+Test 5
+======
+>>> print(type(bg))
+<class '7-base_geometry.BaseGeometry'>
+
+Test 6
+======
+>>> print(bg.my_int)
+Traceback (most recent call last):
+...
+AttributeError: 'BaseGeometry' object has no attribute 'my_int'
