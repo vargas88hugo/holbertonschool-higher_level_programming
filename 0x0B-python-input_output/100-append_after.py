@@ -13,14 +13,14 @@ def append_after(filename="", search_string="", new_string=""):
         param2 (search_string): the string to be searched
         param3 (new_string): the string of the new line
     """
-    with open(filename, "r+") as f:
+    with open(filename, mode="r", encoding="utf-8") as f:
         l = f.readlines()
         n = 0
         for i in l:
             n += 1
             if search_string in i:
                 l.insert(n, new_string)
-        f.seek(0)
+
+    with open(filename, mode="w", encoding="utf-8") as f:
         for i in l:
             f.write(i)
-        f.truncate()
