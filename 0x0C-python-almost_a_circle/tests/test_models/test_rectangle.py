@@ -2,7 +2,9 @@
 """
 Unittest for base module
 """
+import io
 import unittest
+import unittest.mock
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -151,6 +153,24 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(r2.area(), 20)
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
+
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_rectangle_display(self, mock_stdout):
+        r1 = Rectangle(4, 6)
+        r1.display()
+        print("---")
+        r2 = Rectangle(2, 2)
+        r2.display()
+        self.assertEqual(mock_stdout.getvalue(), """####
+####
+####
+####
+####
+####
+---
+##
+##
+""")
 
     def tearDown(self):
         pass
