@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unittest for 6-max_integer function
+Unittest for base module
 """
 import unittest
 from models.base import Base
@@ -8,7 +8,11 @@ from models.base import Base
 
 class TestMaxInteger(unittest.TestCase):
     """ Tests for Base Class """
-    def test_base(self):
+
+    def setUp(self):
+        Base._Base__nb_objects = 0
+
+    def test_base_id(self):
         b1 = Base()
         self.assertEqual(b1.id, 1)
         b2 = Base()
@@ -19,5 +23,13 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(b4.id, 12)
         b5 = Base()
         self.assertEqual(b5.id, 4)
-        b6 = Base(1)
-        self.assertEqual(b6.id, 5)
+
+    def test_base_type(self):
+        b1 = Base()
+        self.assertTrue(type(b1) is Base)
+
+    def tearDown(self):
+        pass
+
+if __name__ == "__main__":
+    unittest.main()
