@@ -161,6 +161,15 @@ class TestMaxInteger(unittest.TestCase):
         print("---")
         r2 = Rectangle(2, 2)
         r2.display()
+        print("---")
+        r1 = Rectangle(2, 3, 2, 2)
+        r1.display()
+        print("---")
+        r2 = Rectangle(3, 2, 1, 0)
+        r2.display()
+        print("---")
+        r2 = Rectangle(1, 1, 0, 0)
+        r2.display()
         self.assertEqual(mock_stdout.getvalue(), """####
 ####
 ####
@@ -170,6 +179,17 @@ class TestMaxInteger(unittest.TestCase):
 ---
 ##
 ##
+---
+
+
+  ##
+  ##
+  ##
+---
+ ###
+ ###
+---
+#
 """)
 
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
