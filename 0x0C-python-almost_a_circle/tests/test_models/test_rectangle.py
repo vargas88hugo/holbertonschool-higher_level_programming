@@ -144,8 +144,17 @@ class TestMaxInteger(unittest.TestCase):
             r1 = Rectangle(1, 2, 1, -99999999999999)
         self.assertEqual(str(e.exception), "y must be >= 0")
 
+    def test_rectangle_area(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r2.area(), 20)
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r3.area(), 56)
+
     def tearDown(self):
         pass
+
 
 if __name__ == "__main__":
     unittest.main()
