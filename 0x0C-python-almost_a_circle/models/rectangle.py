@@ -94,3 +94,10 @@ class Rectangle(Base):
                                                        self.__y,
                                                        self.__width,
                                                        self.__height)
+
+    def update(self, *args):
+        list = ["id", "_Rectangle__width", "_Rectangle__height",
+                "_Rectangle__x",
+                "_Rectangle__y"]
+        for i in range(len(args)):
+            self.__dict__[list[i]] = args[i]
