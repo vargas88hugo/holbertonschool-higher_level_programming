@@ -96,7 +96,7 @@ class Rectangle(Base):
                                                        self.__height)
 
     def update(self, *args, **kwargs):
-        if not kwargs:
+        if args:
             list = ["id", "_Rectangle__width", "_Rectangle__height",
                     "_Rectangle__x",
                     "_Rectangle__y"]
