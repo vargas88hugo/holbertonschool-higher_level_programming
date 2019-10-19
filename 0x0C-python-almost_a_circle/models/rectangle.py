@@ -95,9 +95,16 @@ class Rectangle(Base):
                                                        self.__width,
                                                        self.__height)
 
-    def update(self, *args):
-        list = ["id", "_Rectangle__width", "_Rectangle__height",
-                "_Rectangle__x",
-                "_Rectangle__y"]
-        for i in range(len(args)):
-            self.__dict__[list[i]] = args[i]
+    def update(self, *args, **kwargs):
+        if not kwargs:
+            list = ["id", "_Rectangle__width", "_Rectangle__height",
+                    "_Rectangle__x",
+                    "_Rectangle__y"]
+            for i in range(len(args)):
+                self.__dict__[list[i]] = args[i]
+        else:
+            for i, j in kwargs.items():
+                if i != "id":
+                    self.__dict__["_Rectangle__" + i] = j
+                else:
+                    self.__dict__[i] = j

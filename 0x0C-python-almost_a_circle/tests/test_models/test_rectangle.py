@@ -203,7 +203,7 @@ class TestMaxInteger(unittest.TestCase):
 """)
 
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
-    def test_rectangle_str(self, mock_stdout):
+    def test_rectangle_update_args(self, mock_stdout):
         r1 = Rectangle(10, 10, 10, 10)
         print(r1)
         r1.update(89)
@@ -223,6 +223,26 @@ class TestMaxInteger(unittest.TestCase):
 [Rectangle] (89) 10/10 - 2/3
 [Rectangle] (89) 4/10 - 2/3
 [Rectangle] (89) 4/5 - 2/3
+""")
+
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_rectangle_update_kwargs(self, mock_stdout):
+        r1 = Rectangle(10, 10, 10, 10)
+        print(r1)
+        r1.update(height=1)
+        print(r1)
+        r1.update(width=1, x=2)
+        print(r1)
+        r1.update(y=1, width=2, x=3, id=89)
+        print(r1)
+        r1.update(x=1, height=2, y=3, width=4)
+        print(r1)
+        self.assertEqual(mock_stdout.getvalue(),
+                         """[Rectangle] (1) 10/10 - 10/10
+[Rectangle] (1) 10/10 - 10/1
+[Rectangle] (1) 2/10 - 1/1
+[Rectangle] (89) 3/1 - 2/1
+[Rectangle] (89) 1/3 - 4/2
 """)
 
     def tearDown(self):
