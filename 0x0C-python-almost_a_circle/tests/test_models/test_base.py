@@ -8,6 +8,7 @@ import unittest.mock
 import json
 from models.base import Base
 from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestMaxInteger(unittest.TestCase):
@@ -68,6 +69,33 @@ class TestMaxInteger(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_input, list_output)
+
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_base_create(self, mock_stdout):
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        print(r1)
+        print(r2)
+        print(r1 is r2)
+        print(r1 == r2)
+        s1 = Square(3)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        print(s1)
+        print(s2)
+        print(s1 is s2)
+        print(s1 == s2)
+        self.assertEqual(mock_stdout.getvalue(),
+                         """[Rectangle] (1) 1/0 - 3/5
+[Rectangle] (1) 1/0 - 3/5
+False
+False
+[Square] (3) 0/0 - 3
+[Square] (3) 0/0 - 3
+False
+False
+""")
 
     def tearDown(self):
         pass
