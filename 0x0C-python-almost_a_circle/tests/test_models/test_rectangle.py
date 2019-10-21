@@ -245,6 +245,30 @@ class TestMaxInteger(unittest.TestCase):
 [Rectangle] (89) 1/3 - 4/2
 """)
 
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_rectangle_dictionary(self, mock_stdout):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_d = r1.to_dictionary()
+        self.assertDictEqual(r1_d, {'x': 1, 'y': 9, 'id': 1, 'height': 2,
+                                    'width': 10})
+        r2 = Rectangle(1, 1, 1, 1, 1)
+        r2_d = r2.to_dictionary()
+        self.assertDictEqual(r2_d, {'x': 1, 'y': 1, 'id': 1, 'height': 1,
+                                    'width': 1})
+        r3 = Rectangle(9, 9, 9, 9)
+        r3.update(**r2_d)
+        r3_d = r3.to_dictionary()
+        self.assertDictEqual(r3_d, {'x': 1, 'y': 1, 'id': 1, 'height': 1,
+                                    'width': 1})
+        print(r1)
+        print(r2)
+        print(r3)
+        self.assertEqual(mock_stdout.getvalue(),
+                         """[Rectangle] (1) 1/9 - 10/2
+[Rectangle] (1) 1/1 - 1/1
+[Rectangle] (1) 1/1 - 1/1
+""")
+
     def tearDown(self):
         pass
 

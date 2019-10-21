@@ -2,6 +2,7 @@
 """
 This module provides Base Class
 """
+import json
 
 
 class Base:
@@ -22,3 +23,9 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        """
+        Function that returns a json representation
+        """
+        return json.dumps(list_dictionaries)

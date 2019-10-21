@@ -201,5 +201,26 @@ class TestMaxInteger(unittest.TestCase):
 [Square] (89) 12/1 - 7
 """)
 
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_square_dictionary(self, mock_stdout):
+        s1 = Square(10, 2, 1)
+        s1_d = s1.to_dictionary()
+        self.assertDictEqual(s1_d, {'x': 2, 'y': 1, 'id': 1, 'size': 10})
+        s2 = Square(1, 1, 1, 1)
+        s2_d = s2.to_dictionary()
+        self.assertDictEqual(s2_d, {'x': 1, 'y': 1, 'id': 1, 'size': 1})
+        s3 = Square(9, 9, 9, 9)
+        s3.update(**s2_d)
+        s3_d = s3.to_dictionary()
+        self.assertDictEqual(s1_d, {'x': 2, 'y': 1, 'id': 1, 'size': 10})
+        print(s1)
+        print(s2)
+        print(s3)
+        self.assertEqual(mock_stdout.getvalue(),
+                         """[Square] (1) 2/1 - 10
+[Square] (1) 1/1 - 1
+[Square] (1) 1/1 - 1
+""")
+
     def tearDown(self):
         pass

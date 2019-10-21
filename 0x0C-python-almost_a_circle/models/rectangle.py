@@ -74,9 +74,15 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """
+        function that returns the area of the rectangle
+        """
         return self.__width * self.__height
 
     def display(self):
+        """
+        Function that prints a picture representation of the rectangle
+        """
         str1 = ""
         for i in range(self.__y):
             str1 += "\n"
@@ -96,15 +102,31 @@ class Rectangle(Base):
                                                        self.__height)
 
     def update(self, *args, **kwargs):
+        """
+        Function that updates the attributes of the rectangle
+        """
         if args:
-            list = ["id", "_Rectangle__width", "_Rectangle__height",
-                    "_Rectangle__x",
-                    "_Rectangle__y"]
+            li = ["id", "width", "height", "x", "y"]
             for i in range(len(args)):
-                self.__dict__[list[i]] = args[i]
+                setattr(self, li[i], args[i])
         else:
             for i, j in kwargs.items():
-                if i != "id":
-                    self.__dict__["_Rectangle__" + i] = j
-                else:
-                    self.__dict__[i] = j
+                setattr(self, i, j)
+
+    def to_dictionary(self):
+        """
+        Function that returns a dictionary representation
+        """
+        d = {}
+        for i, j in self.__dict__.items():
+            if i == "id":
+                d["id"] = j
+            elif i == "_Rectangle__width":
+                d["width"] = j
+            elif i == "_Rectangle__height":
+                d["height"] = j
+            elif i == "_Rectangle__x":
+                d["x"] = j
+            elif i == "_Rectangle__y":
+                d["y"] = j
+        return d
