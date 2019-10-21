@@ -24,8 +24,11 @@ class Base:
         else:
             self.id = id
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         Function that returns a json representation
         """
+        if not list_dictionaries or list_dictionaries is None:
+            return json.dumps([])
         return json.dumps(list_dictionaries)

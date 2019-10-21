@@ -2,8 +2,11 @@
 """
 Unittest for base module
 """
+import io
 import unittest
+import unittest.mock
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestMaxInteger(unittest.TestCase):
@@ -27,6 +30,25 @@ class TestMaxInteger(unittest.TestCase):
     def test_base_type(self):
         b1 = Base()
         self.assertTrue(type(b1) is Base)
+
+    @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+    def test_base_json_string(self, mock_stdout):
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        self.assertDictEqual(dictionary, {'x': 2, 'y': 8, 'id': 1, 'height': 7,
+                                          'width': 10})
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(str([dictionary]).replace("'", '"'), json_dictionary)
+        json_empty = Base.to_json_string([])
+        self.assertEqual(str([]), json_empty)
+        json_none = Base.to_json_string(None)
+        self.assertEqual(str([]), json_none)
+        print(type(dictionary))
+        print(type(json_dictionary))
+        self.assertEqual(mock_stdout.getvalue(),
+                         """<class 'dict'>
+<class 'str'>
+""")
 
     def tearDown(self):
         pass
