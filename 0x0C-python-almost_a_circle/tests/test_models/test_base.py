@@ -97,6 +97,17 @@ False
 False
 """)
 
+    def test_base_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertNotEqual(list_rectangles_input, list_rectangles_output)
+        d1 = [i.to_dictionary() for i in list_rectangles_input]
+        d2 = [i.to_dictionary() for i in list_rectangles_output]
+        self.assertEqual(d1, d2)
+
     def tearDown(self):
         pass
 

@@ -56,6 +56,24 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """
+        Function that creates a new instance of the class
+        """
         r1 = cls(1, 1)
         r1.update(**dictionary)
         return r1
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Function that return a list of instances
+        """
+        with open(cls.__name__ + ".json", encoding="utf-8") as f:
+            a = f.read()
+        if not a or a is None or a == "[]":
+            return []
+        d = cls.from_json_string(a)
+        a = []
+        for i in d:
+            a[len(a):] = [cls.create(**i)]
+        return a
