@@ -5,6 +5,7 @@ Unittest for base module
 import io
 import unittest
 import unittest.mock
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -49,6 +50,15 @@ class TestMaxInteger(unittest.TestCase):
                          """<class 'dict'>
 <class 'str'>
 """)
+
+    def test_base_save_json(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        with open("Rectangle.json", "r") as f:
+            data = json.load(f)
+        a = [r1.to_dictionary(), r2.to_dictionary()]
+        self.assertEqual(a, data)
 
     def tearDown(self):
         pass
