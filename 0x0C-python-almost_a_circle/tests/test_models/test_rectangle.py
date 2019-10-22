@@ -9,7 +9,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 
 
-class TestMaxInteger(unittest.TestCase):
+class Test_Rectangle(unittest.TestCase):
     """ Tests for Rectangle Class """
 
     def setUp(self):

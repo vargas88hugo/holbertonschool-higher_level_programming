@@ -11,7 +11,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestMaxInteger(unittest.TestCase):
+class Test_Base(unittest.TestCase):
     """ Tests for Base Class """
 
     def setUp(self):

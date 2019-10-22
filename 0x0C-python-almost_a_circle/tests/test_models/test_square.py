@@ -10,7 +10,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestMaxInteger(unittest.TestCase):
+class Test_Square(unittest.TestCase):
     """ Tests for Square Class """
 
     def setUp(self):
