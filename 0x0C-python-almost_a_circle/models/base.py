@@ -3,6 +3,7 @@
 This module provides Base Class
 """
 import json
+import os
 
 
 class Base:
@@ -76,10 +77,10 @@ class Base:
         """
         Function that return a list of instances
         """
+        if not os.path.isfile(cls.__name__ + ".json"):
+            return []
         with open(cls.__name__ + ".json", encoding="utf-8") as f:
             a = f.read()
-        if not a or a is None or a == "[]":
-            return []
         d = cls.from_json_string(a)
         a = []
         for i in d:
