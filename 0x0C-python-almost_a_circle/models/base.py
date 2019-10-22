@@ -62,7 +62,12 @@ class Base:
         """
         Function that creates a new instance of the class
         """
-        r1 = cls(1, 1)
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            r1 = cls(1, 1)
+        elif cls is Square:
+            r1 = cls(1)
         r1.update(**dictionary)
         return r1
 
