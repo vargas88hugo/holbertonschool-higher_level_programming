@@ -39,9 +39,12 @@ class Base:
         Function that saves a json file
         """
         a = []
-        for i in list_objs:
-            a[len(a):] = [i.to_dictionary()]
-        j = cls.to_json_string(a)
+        if list_objs is not None:
+            for i in list_objs:
+                a[len(a):] = [i.to_dictionary()]
+            j = cls.to_json_string(a)
+        else:
+            j = cls.to_json_string(list_objs)
         with open(cls.__name__ + ".json", "w", encoding="utf-8") as f:
             f.write(j)
 
