@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unittest for rectangle module
+Unittest for square module
 """
 import io
 import unittest
