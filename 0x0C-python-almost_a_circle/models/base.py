@@ -4,6 +4,7 @@ This module provides Base Class
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -75,7 +76,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
-        Function that return a list of instances
+        Function that return a list of instances from a json file
         """
         if not os.path.isfile(cls.__name__ + ".json"):
             return []
@@ -85,4 +86,35 @@ class Base:
         a = []
         for i in d:
             a[len(a):] = [cls.create(**i)]
+        return a
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Function that saves a csv file
+        """
+        a, b = [], []
+        if list_objs is not None:
+            for i in list_objs:
+                a[len(a):] = [list(i.to_dictionary().keys())]
+                b[len(b):] = [i.to_dictionary()]
+        with open(cls.__name__ + ".csv", "w", encoding="utf-8") as f:
+            csv_w = csv.DictWriter(f, fieldnames=a[0])
+            csv_w.writeheader()
+            for i in b:
+                csv_w.writerow(i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Function that return returns a list of instance from a cvs file
+        """
+        if not os.path.isfile(cls.__name__ + ".csv"):
+            return []
+        with open(cls.__name__ + ".csv", encoding="utf-8") as f:
+            csv_r = list(csv.DictReader(f))
+            a = []
+            for i in csv_r:
+                i = {x: int(y) for x, y in i.items()}
+                a[len(a):] = [cls.create(**i)]
         return a
