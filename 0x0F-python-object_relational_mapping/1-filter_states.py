@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all states
+This script lists all states with filter
 """
 
 import MySQLdb
