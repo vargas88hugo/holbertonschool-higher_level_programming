@@ -27,8 +27,8 @@ def get_filter_states():
     """
     cur, conn = connection()
 
-    cur.execute("SELECT * FROM states WHERE name REGEXP '^N'\
-    ORDER BY states.id ASC")
+    cur.execute("""SELECT * FROM states WHERE name REGEXP '^N'
+    ORDER BY states.id ASC""")
     query = cur.fetchall()   # fetches all rows and returns a list of tuples
     for i in query:
         print(i)
