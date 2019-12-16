@@ -5,3 +5,4 @@
 6-model_state.py
 __pycache__
 7-model_state_fetch_all.sql
+14-model_city_fetch_by_state.sql
