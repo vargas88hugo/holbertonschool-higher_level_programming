@@ -6,3 +6,4 @@
 __pycache__
 7-model_state_fetch_all.sql
 14-model_city_fetch_by_state.sql
+100-relationship_states_cities.sql
