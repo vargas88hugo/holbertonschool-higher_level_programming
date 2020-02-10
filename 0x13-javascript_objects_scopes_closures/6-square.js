@@ -7,7 +7,7 @@ class Square extends SuperSquare {
     if (c !== undefined) {
       for (let i = 1; i <= this.height; i++) {
         for (let j = 1; j <= this.width; j++) {
-          process.stdout.write('C');
+          process.stdout.write(c);
         }
         console.log();
       }
