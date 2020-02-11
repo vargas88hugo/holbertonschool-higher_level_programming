@@ -1,0 +1,1 @@
+# This project is about Javascript - Web scraping
