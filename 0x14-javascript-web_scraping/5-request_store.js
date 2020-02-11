@@ -15,5 +15,4 @@ request(url, (err, response, body) => {
       return console.log(err);
     }
   });
-  process.stdout.write(body);
 });
