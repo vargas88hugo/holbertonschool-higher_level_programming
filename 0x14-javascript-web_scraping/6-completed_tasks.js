@@ -11,9 +11,9 @@ request(url, (err, response, body) => {
   for (let i = 0; i < JSON.parse(body).length; i++) {
     if (JSON.parse(body)[i].completed === true) {
       if (counter[JSON.parse(body)[i].userId] === undefined) {
-	counter[JSON.parse(body)[i].userId] = 1;
+        counter[JSON.parse(body)[i].userId] = 1;
       } else {
-	counter[JSON.parse(body)[i].userId]++;
+        counter[JSON.parse(body)[i].userId]++;
       }
     }
   }
