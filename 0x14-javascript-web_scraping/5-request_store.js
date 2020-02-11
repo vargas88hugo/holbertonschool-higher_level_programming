@@ -15,5 +15,5 @@ request(url, (err, response, body) => {
       return console.log(err);
     }
   });
-  console.log(body);
+  process.stdout.write(body);
 });
