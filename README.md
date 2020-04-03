@@ -1,5 +1,5 @@
 # Holberton School- High Level Programming
-This is a practice from Holberton School. It includes the basic principles of high level languages such as Python, JavaScript and SQL. Mainly focuses on Python
+This is a practice from Holberton School. It includes the basic principles of high level languages such as Python, JavaScript and SQL data bases. Mainly focuses on Python
 
 # Content
 | Project  | Description |
@@ -26,3 +26,10 @@ This is a practice from Holberton School. It includes the basic principles of hi
 | 0x13-javascript_objects_scopes_closures | Object Oriented Programming, Prototypes and Closures |
 | 0x14-javascript-web_scraping | How to manipulate JSON data, consumes API and fetch usage |
 | 0x15-javascript-web_jquery | Basics of JQuery, DOM manipulation and AJAX |
+
+### Prerequisites
+* Ubuntu 14.04 LTS
+* python3 (version 3.4.3)
+* PEP8
+* MySQL
+* NodeJs
